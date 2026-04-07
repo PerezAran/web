@@ -5,7 +5,7 @@ Aquesta és la web corporativa de [Nom de l'Empresa], una empresa fictícia dedi
 
 ## Demostració
 
-[🌐 URL de la web]([https://[usuari].github.io/[nom-del-repositori]](https://perezaran.github.io/web/#contacte))
+[🌐 URL de la web](https://perezaran.github.io/web/#inici)
 
 ## Tecnologies Utilitzades
 
