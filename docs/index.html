@@ -1,1 +1,299 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaStream | Agència de Màrqueting Digital</title>
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        /* Navegació */
+        header {
+            background: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { 
+            height: 40px; 
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Secció Hero */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botons */
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Seccions Generals */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+
+        .bg-light { 
+            background: var(--light); 
+        }
+
+        /* Serveis (Grid) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* Formulari */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group { 
+            margin-bottom: 1.5rem; 
+        }
+
+        .form-group label { 
+            display: block; 
+            margin-bottom: 0.5rem; 
+            font-weight: 600;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="NovaStream" onerror="this.style.display='none';">
+                <span>NOVASTREAM</span>
+            </div>
+            <ul>
+                <li><a href="#inici">Inici</a></li>
+                <li><a href="#serveis">Serveis</a></li>
+                <li><a href="#sobre-nosaltres">Sobre nosaltres</a></li>
+                <li><a href="#contacte">Contacte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inici" class="hero">
+        <div class="container">
+            <h1>Impulsem el teu negoci al món digital</h1>
+            <p>Estratègies innovadores i solucions a mida per a marques que busquen un creixement real i mesurable en el mercat actual.</p>
+            <a href="#contacte" class="btn">Començar ara</a>
+        </div>
+    </section>
+
+    <section id="serveis" class="container">
+        <h2 class="section-title">Els Nostres Serveis</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>SEO & SEM</h3>
+                <p>Optimitzem la teva visibilitat als motors de cerca i gestionem campanyes publicitàries d'alt rendiment per captar clients potencials.</p>
+            </div>
+            <div class="card">
+                <h3>Social Media</h3>
+                <p>Creem una veu única per a la teva marca a les xarxes socials, gestionant comunitats i generant contingut viral i de valor.</p>
+            </div>
+            <div class="card">
+                <h3>Disseny Web</h3>
+                <p>Desenvolupem webs corporatives modernes, ràpides i totalment responsives que converteixen les visites en vendes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosaltres" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Sobre nosaltres</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>A <strong>NovaStream</strong>, no som només una agència; som el teu soci tecnològic. Amb anys d'experiència en el sector digital, el nostre equip combina creativitat i anàlisi de dades per oferir resultats tangibles.</p>
+                <br>
+                <p>La nostra missió és democratitzar l'accés a les millors eines de màrqueting digital per a empreses de tots els mides, mantenint sempre els nostres valors d'innovació, integritat i excel·lència.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacte" class="container">
+        <h2 class="section-title">Parlem-ne</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" placeholder="El teu nom complet" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correu electrònic</label>
+                <input type="email" id="email" name="email" placeholder="correu@exemple.com" required>
+            </div>
+            <div class="form-group">
+                <label for="telefon">Telèfon de contacte</label>
+                <input type="tel" id="telefon" name="telefon" placeholder="600 000 000" required>
+            </div>
+            <div class="form-group">
+                <label for="missatge">Missatge</label>
+                <textarea id="missatge" name="missatge" rows="5" placeholder="En què et podem ajudar?" required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Enviar missatge</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 NovaStream Agència Digital. Tots els drets reservats.</p>
+            <p><small>Creat per a l'èxit digital.</small></p>
+        </div>
+    </footer>
+
+</body>
+</html>
