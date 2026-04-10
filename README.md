@@ -1,7 +1,7 @@
 
 # Web Corporativa de FootLogistic
 
-Aquesta és la web corporativa de [Nom de l'Empresa], una empresa fictícia dedicada a [descripció breu de l'empresa] dins el mòdul *Projecte Intermodular*.
+Aquesta és la web corporativa de FoodLogistic, una empresa fictícia dedicada al sector alimentari en plena expansió. La seva infraestructura IT no ha crescut al mateix ritme que el negoci. Això genera riscos reals cada dia.
 
 ## Demostració
 
