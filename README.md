@@ -5,7 +5,7 @@ Aquesta és la web corporativa de FoodLogistic, una empresa fictícia dedicada a
 
 ## Demostració
 
-[🌐 URL de la web](https://perezaran.github.io/web/#inici)
+[🌐 URL de la web](https://perezaran.github.io/web/#)
 
 ## Tecnologies Utilitzades
 
