@@ -2,298 +2,678 @@
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaStream | Agència de Màrqueting Digital</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Plataforma de viatges sostenibles per redescobrir el món respectant el medi ambient">
+    <title>EcoViatges | Turisme Responsable</title>
     <style>
+        /* -------------------- CSS VARIABLES (MODERN THEME) -------------------- */
         :root {
-            --primary: #2563eb;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
+            --primary: #2c6e49;
+            --primary-dark: #1e4a31;
+            --secondary: #f4a261;
+            --accent: #e9c46a;
+            --light: #fefae0;
+            --dark: #264653;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
             --white: #ffffff;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 1rem;
+            --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--white);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 2rem;
-        }
-
-        /* Navegació */
-        header {
-            background: var(--white);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo { 
-            height: 40px; 
-            font-weight: bold;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li a {
-            text-decoration: none;
+            font-family: var(--font-sans);
+            background-color: var(--light);
             color: var(--dark);
-            margin-left: 1.5rem;
-            font-weight: 600;
-            transition: color 0.3s;
+            line-height: 1.5;
+            scroll-behavior: smooth;
         }
 
-        nav ul li a:hover {
-            color: var(--primary);
+        /* Container reusable */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        /* Secció Hero */
-        .hero {
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 1rem;
+        /* Tipografia */
+        h1, h2, h3 {
+            font-weight: 700;
             line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
         }
 
         /* Botons */
         .btn {
-            display: inline-block;
-            background: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary);
             color: white;
-            padding: 0.8rem 2.5rem;
-            text-decoration: none;
-            border-radius: 5px;
+            padding: 0.75rem 1.8rem;
+            border-radius: 2rem;
             font-weight: 600;
-            transition: opacity 0.3s;
+            text-decoration: none;
+            transition: all 0.2s ease;
             border: none;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .btn:hover {
-            opacity: 0.9;
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Seccions Generals */
-        section {
-            padding: 5rem 0;
+        /* Header i navegació */
+        .site-header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95);
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: var(--dark);
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
         }
 
-        .bg-light { 
-            background: var(--light); 
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
         }
 
-        /* Serveis (Grid) */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .nav-links {
+            display: flex;
             gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--dark);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44,110,73,0.9), rgba(38,70,83,0.85)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=600&fit=crop') center/cover no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            border-radius: 0 0 2rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 1rem auto 0;
+        }
+
+        /* Seccions comunes */
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .card {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--primary);
-            transition: transform 0.3s;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
         }
 
         .card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
+            margin-bottom: 0.75rem;
         }
 
-        /* Formulari */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        /* Formulari modern */
+        .form-group {
+            margin-bottom: 1.25rem;
         }
 
-        .form-group { 
-            margin-bottom: 1.5rem; 
-        }
-
-        .form-group label { 
-            display: block; 
-            margin-bottom: 0.5rem; 
+        label {
+            display: block;
             font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        .form-group input, 
-        .form-group textarea {
+        input, textarea, select {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 5px;
-            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 1rem;
             font-family: inherit;
+            transition: border 0.2s;
+            background-color: var(--white);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44,110,73,0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
 
         /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
+        .footer {
+            background-color: var(--dark);
+            color: var(--gray-light);
+            padding: 2rem 0;
             text-align: center;
-            padding: 3rem 0;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: var(--accent);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Cookie banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1000;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .cookie-text {
+            flex: 2;
+            font-size: 0.9rem;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-btn {
+            background: var(--primary);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+        }
+
+        .cookie-btn-settings {
+            background: transparent;
+            border: 1px solid var(--gray-light);
+        }
+
+        /* Modals (avis legal, privacitat) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hero h1 { font-size: 2.2rem; }
-            .section-title { font-size: 2rem; }
+            .navbar {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="NovaStream" onerror="this.style.display='none';">
-                <span>NOVASTREAM</span>
-            </div>
-            <ul>
-                <li><a href="#inici">Inici</a></li>
-                <li><a href="#serveis">Serveis</a></li>
-                <li><a href="#sobre-nosaltres">Sobre nosaltres</a></li>
-                <li><a href="#contacte">Contacte</a></li>
-            </ul>
-        </nav>
+    <!-- Capçalera semàntica -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar" aria-label="Navegació principal">
+                <a href="#" class="logo">🌿 EcoViatges</a>
+                <ul class="nav-links">
+                    <li><a href="#inici">Inici</a></li>
+                    <li><a href="#destinacions">Destinacions</a></li>
+                    <li><a href="#contacte">Contacte</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="inici" class="hero">
+    <main>
+        <!-- Hero section -->
+        <section id="inici" class="hero">
+            <div class="container">
+                <h1>Descobreix el món<br>amb consciència ecològica</h1>
+                <p>Viatges sostenibles, petjada mínima, experiències autèntiques.</p>
+                <a href="#contacte" class="btn" style="margin-top: 2rem;">🌍 Reserva ara</a>
+            </div>
+        </section>
+
+        <!-- Secció Destinacions sostenibles -->
+        <section id="destinacions" class="section">
+            <div class="container">
+                <h2>🌱 Destinacions Eco-friendly</h2>
+                <p>Descobreix racons únics que protegeixen el seu entorn natural.</p>
+                <div class="grid-3">
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&h=400&fit=crop" alt="Paisatge verd a Còrsega" loading="lazy">
+                        <div class="card-content">
+                            <h3>Còrsega Verda</h3>
+                            <p>Rutes a peu i energies renovables en allotjaments ecològics.</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&h=400&fit=crop" alt="Parque Nacional de Picos de Europa" loading="lazy">
+                        <div class="card-content">
+                            <h3>Picos de Europa</h3>
+                            <p>Biodiversitat i turisme responsable amb comunitats locals.</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=400&fit=crop" alt="Llac i muntanyes a Noruega" loading="lazy">
+                        <div class="card-content">
+                            <h3>Fiords Noruecs</h3>
+                            <p>Viatges amb baixes emissions i vaixells elèctrics.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció Formulari de contacte / sol·licitud -->
+        <section id="contacte" class="section">
+            <div class="container">
+                <h2>📩 Sol·licita informació</h2>
+                <p>Omple el formulari i t’enviarem propostes de viatge sostenible sense compromís.</p>
+                <form id="contactForm" action="#" method="post" style="max-width: 700px; margin-top: 2rem;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom complet *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correu electrònic *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="desti">Destí d’interès</label>
+                        <select id="desti" name="desti">
+                            <option value="Còrsega">Còrsega Verda</option>
+                            <option value="Picos Europa">Picos de Europa</option>
+                            <option value="Noruega">Fiords Noruecs</option>
+                            <option value="altre">Altres</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="missatge">Missatge</label>
+                        <textarea id="missatge" rows="4" placeholder="Com podem ajudar-te?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="privacyConsent" required> 
+                            He llegit i accepto la <a href="#" id="openPrivacyModalLink" style="color: var(--primary);">Política de privacitat</a> *
+                        </label>
+                    </div>
+                    <button type="submit" class="btn">Enviar sol·licitud ✈️</button>
+                    <p id="formFeedback" style="margin-top: 1rem; font-size: 0.9rem;"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer semàntic amb enllaços legals -->
+    <footer class="footer">
         <div class="container">
-            <h1>Impulsem el teu negoci al món digital</h1>
-            <p>Estratègies innovadores i solucions a mida per a marques que busquen un creixement real i mesurable en el mercat actual.</p>
-            <a href="#contacte" class="btn">Començar ara</a>
-        </div>
-    </section>
-
-    <section id="serveis" class="container">
-        <h2 class="section-title">Els Nostres Serveis</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>SEO & SEM</h3>
-                <p>Optimitzem la teva visibilitat als motors de cerca i gestionem campanyes publicitàries d'alt rendiment per captar clients potencials.</p>
+            <p>© 2025 EcoViatges - Turisme sostenible i responsable</p>
+            <div class="legal-links">
+                <a id="openLegalModal">📜 Avís Legal</a>
+                <a id="openPrivacyModal">🔒 Política de Privacitat</a>
+                <a id="openCookieSettingsLink">🍪 Política de Cookies</a>
             </div>
-            <div class="card">
-                <h3>Social Media</h3>
-                <p>Creem una veu única per a la teva marca a les xarxes socials, gestionant comunitats i generant contingut viral i de valor.</p>
-            </div>
-            <div class="card">
-                <h3>Disseny Web</h3>
-                <p>Desenvolupem webs corporatives modernes, ràpides i totalment responsives que converteixen les visites en vendes.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="sobre-nosaltres" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Sobre nosaltres</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p>A <strong>NovaStream</strong>, no som només una agència; som el teu soci tecnològic. Amb anys d'experiència en el sector digital, el nostre equip combina creativitat i anàlisi de dades per oferir resultats tangibles.</p>
-                <br>
-                <p>La nostra missió és democratitzar l'accés a les millors eines de màrqueting digital per a empreses de tots els mides, mantenint sempre els nostres valors d'innovació, integritat i excel·lència.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacte" class="container">
-        <h2 class="section-title">Parlem-ne</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" placeholder="El teu nom complet" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Correu electrònic</label>
-                <input type="email" id="email" name="email" placeholder="correu@exemple.com" required>
-            </div>
-            <div class="form-group">
-                <label for="telefon">Telèfon de contacte</label>
-                <input type="tel" id="telefon" name="telefon" placeholder="600 000 000" required>
-            </div>
-            <div class="form-group">
-                <label for="missatge">Missatge</label>
-                <textarea id="missatge" name="missatge" rows="5" placeholder="En què et podem ajudar?" required></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">Enviar missatge</button>
-        </form>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 NovaStream Agència Digital. Tots els drets reservats.</p>
-            <p><small>Creat per a l'èxit digital.</small></p>
         </div>
     </footer>
+
+    <!-- Modal Avís Legal -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal="legalModal">&times;</span>
+            <h3>Avís Legal</h3>
+            <p>En compliment de la Llei 34/2002, de Serveis de la Societat de la Informació, EcoViatges informa que aquesta web té finalitats informatives i de promoció del turisme sostenible. Tots els continguts són propietat d'EcoViatges. Queda prohibida la reproducció total o parcial sense autorització expressa. Aquest lloc web utilitza cookies pròpies i de tercers per a millorar l'experiència. Pots gestionar-les des del panell de configuració de cookies.</p>
+            <p><strong>Responsable:</strong> EcoViatges S.L. - C/ Sostenible 42, Barcelona.</p>
+        </div>
+    </div>
+
+    <!-- Modal Política de Privacitat -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal="privacyModal">&times;</span>
+            <h3>Política de Privacitat</h3>
+            <p>D'acord amb el RGPD (UE) 2016/679, les dades personals recollides mitjançant el formulari seran tractades per EcoViatges amb la finalitat de gestionar consultes i enviar informació sobre viatges sostenibles. No cedirem les teves dades a tercers. Pots exercir els drets d'accés, rectificació, supressió i portabilitat escrivint a <strong>privacy@ecoviatges.eco</strong>. La base legal és el teu consentiment explícit.</p>
+            <p>Conservarem les dades mentre sigui necessari per a la relació comercial o fins que retiris el consentiment.</p>
+        </div>
+    </div>
+
+    <!-- Cookie Banner i gestió -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-text">
+            🍪 Utilitzem cookies pròpies i de tercers per analitzar el trànsit, personalitzar contingut i oferir funcionalitats de xarxes socials. Pots acceptar-les, configurar-les o rebutjar-les.
+        </div>
+        <div class="cookie-buttons">
+            <button id="acceptCookies" class="cookie-btn">Acceptar totes</button>
+            <button id="configureCookies" class="cookie-btn cookie-btn-settings">Configurar</button>
+            <button id="rejectCookies" class="cookie-btn cookie-btn-settings">Rebutjar</button>
+        </div>
+    </div>
+
+    <!-- Sub-modal de configuració de cookies (preferències) -->
+    <div id="cookieSettingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal="cookieSettingsModal">&times;</span>
+            <h3>Preferències de Cookies</h3>
+            <p>Trieu quines categories de cookies voleu activar:</p>
+            <div style="margin: 1rem 0;">
+                <label style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="checkbox" id="cookieEssential" checked disabled> Tècniques (necessàries)
+                </label>
+                <label style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;">
+                    <input type="checkbox" id="cookieAnalytics"> Analítiques (Google Analytics, estadístiques)
+                </label>
+                <label style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.5rem;">
+                    <input type="checkbox" id="cookieMarketing"> Màrqueting i personalització
+                </label>
+            </div>
+            <button id="saveCookiePrefs" class="btn" style="background: var(--primary);">Guardar preferències</button>
+        </div>
+    </div>
+
+    <script>
+        // -------------------- JAVASCRIPT MODULAR (VANILLA) --------------------
+        (function() {
+            // ---------- COOKIE MANAGEMENT (simulat amb localStorage per demostrar consentiment) ----------
+            const COOKIE_CONSENT_KEY = 'ecoviatges_cookie_consent';
+            
+            function getCookieConsent() {
+                const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+                if(consent) return JSON.parse(consent);
+                return null; // no decidit
+            }
+
+            function setCookieConsent(preferences) {
+                localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(preferences));
+                // Aquí es podrien aplicar serveis de tercers en funció de les preferències.
+                console.log('Preferències de cookies guardades:', preferences);
+                // Per simular, amaguem el banner si ja està definit.
+                const banner = document.getElementById('cookieBanner');
+                if(banner) banner.classList.remove('show');
+                closeModal('cookieSettingsModal');
+            }
+
+            // Mostrar banner només si no hi ha consentiment previ
+            function initCookieBanner() {
+                const banner = document.getElementById('cookieBanner');
+                const consent = getCookieConsent();
+                if(!consent) {
+                    banner.classList.add('show');
+                } else {
+                    banner.classList.remove('show');
+                }
+            }
+
+            // acceptar totes les cookies
+            function acceptAllCookies() {
+                setCookieConsent({ essential: true, analytics: true, marketing: true });
+            }
+
+            function rejectAllCookies() {
+                setCookieConsent({ essential: true, analytics: false, marketing: false });
+            }
+
+            function configureCookies() {
+                // Obrir modal de configuració amb preferències actuals si existeixen
+                const current = getCookieConsent();
+                if(current) {
+                    document.getElementById('cookieAnalytics').checked = current.analytics || false;
+                    document.getElementById('cookieMarketing').checked = current.marketing || false;
+                } else {
+                    document.getElementById('cookieAnalytics').checked = false;
+                    document.getElementById('cookieMarketing').checked = false;
+                }
+                openModal('cookieSettingsModal');
+            }
+
+            function savePreferencesFromModal() {
+                const analytics = document.getElementById('cookieAnalytics').checked;
+                const marketing = document.getElementById('cookieMarketing').checked;
+                setCookieConsent({ essential: true, analytics: analytics, marketing: marketing });
+            }
+
+            // ---------- MODALS ----------
+            function openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if(modal) modal.style.display = 'flex';
+            }
+            function closeModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if(modal) modal.style.display = 'none';
+            }
+
+            // Configurar event listeners de modals legals i cookies
+            function bindModals() {
+                // Obrir Avís Legal
+                const legalLink = document.getElementById('openLegalModal');
+                if(legalLink) legalLink.addEventListener('click', (e) => { e.preventDefault(); openModal('legalModal'); });
+                // Obrir Política Privacitat
+                const privacyLink = document.getElementById('openPrivacyModal');
+                if(privacyLink) privacyLink.addEventListener('click', (e) => { e.preventDefault(); openModal('privacyModal'); });
+                // Enllaç des de formulari
+                const privacyModalLink = document.getElementById('openPrivacyModalLink');
+                if(privacyModalLink) privacyModalLink.addEventListener('click', (e) => { e.preventDefault(); openModal('privacyModal'); });
+                
+                // Obrir configuració cookies des del footer
+                const cookieSettingsLink = document.getElementById('openCookieSettingsLink');
+                if(cookieSettingsLink) cookieSettingsLink.addEventListener('click', (e) => { e.preventDefault(); configureCookies(); });
+                
+                // Tancar qualsevol modal fent clic a la X
+                document.querySelectorAll('.close-modal').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const modalId = btn.getAttribute('data-modal');
+                        if(modalId) closeModal(modalId);
+                    });
+                });
+                // Tancar modals fent clic fora del contingut
+                window.addEventListener('click', (e) => {
+                    if(e.target.classList.contains('modal')) {
+                        e.target.style.display = 'none';
+                    }
+                });
+            }
+
+            // ---------- FORMULARI AMB VALIDACIÓ I PROTECCIÓ DE PRIVACITAT ----------
+            function initForm() {
+                const form = document.getElementById('contactForm');
+                const feedback = document.getElementById('formFeedback');
+                if(!form) return;
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const nom = document.getElementById('nom').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const privacyConsent = document.getElementById('privacyConsent').checked;
+                    
+                    if(!nom || !email) {
+                        feedback.style.color = 'red';
+                        feedback.textContent = '⚠️ Si us plau, omple el nom i el correu electrònic.';
+                        return;
+                    }
+                    if(!email.includes('@') || !email.includes('.')) {
+                        feedback.style.color = 'red';
+                        feedback.textContent = '⚠️ Introdueix un correu electrònic vàlid.';
+                        return;
+                    }
+                    if(!privacyConsent) {
+                        feedback.style.color = 'red';
+                        feedback.textContent = '📌 Has d’acceptar la política de privacitat per enviar el formulari.';
+                        return;
+                    }
+                    // Simular enviament correcte (no backend real)
+                    feedback.style.color = 'green';
+                    feedback.textContent = '✅ Gràcies! Rebràs informació en breu. Respectem el teu email.';
+                    form.reset();
+                    // Opcional: esborrar missatge al cap de 5 segons
+                    setTimeout(() => { if(feedback) feedback.textContent = ''; }, 5000);
+                });
+            }
+
+            // Configuració botons del banner
+            function bindCookieButtons() {
+                const acceptBtn = document.getElementById('acceptCookies');
+                const rejectBtn = document.getElementById('rejectCookies');
+                const configBtn = document.getElementById('configureCookies');
+                const savePrefsBtn = document.getElementById('saveCookiePrefs');
+                if(acceptBtn) acceptBtn.addEventListener('click', acceptAllCookies);
+                if(rejectBtn) rejectBtn.addEventListener('click', rejectAllCookies);
+                if(configBtn) configBtn.addEventListener('click', configureCookies);
+                if(savePrefsBtn) savePrefsBtn.addEventListener('click', savePreferencesFromModal);
+            }
+
+            // Inicialització general
+            function init() {
+                initCookieBanner();
+                bindCookieButtons();
+                bindModals();
+                initForm();
+                // Tancar el banner si ja ha acceptat abans (per si de cas es recarrega)
+                const consent = getCookieConsent();
+                if(consent) {
+                    const banner = document.getElementById('cookieBanner');
+                    if(banner) banner.classList.remove('show');
+                }
+            }
+
+            init();
+        })();
+    </script>
+</body>
+</html>
 <!-- Default Statcounter code for Web https://perezaran.github.io/web/ -->
 <script type="text/javascript">
 var sc_project=13214954; 
