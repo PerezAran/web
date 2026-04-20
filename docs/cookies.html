@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Política de Cookies | FoodLogistic</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
+        .box { background: #f4f7f6; border-left: 5px solid #e67e22; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .btn { background: #e67e22; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .external-link { color: #d35400; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🍪 Política de Cookies</h1>
+    <p>A FoodLogistic volem que tinguis el control total de la teva informació. A continuació t'expliquem quines cookies utilitzem:</p>
+
+    <div class="box">
+        <h3>1. Cookies Tècniques (Necessàries)</h3>
+        <p>Són aquelles que permeten a l'usuari la navegació a través de la pàgina web i l'ús de les diferents opcions o serveis que en ella existeixin. <strong>Sempre estan actives</strong> perquè el web no funcionaria sense elles.</p>
+        <a href="https://extranet.pimec.org/ca/actualitat/noticies/que-hem-tenir-compte-per-complir-normativa-cookies" target="_blank" class="external-link">Llegir més sobre la normativa tècnica →</a>
+    </div>
+
+    <div class="box">
+        <h3>2. Cookies d'Anàlisi</h3>
+        <p>Aquestes galetes ens permeten quantificar el nombre d'usuaris i realitzar el mesurament i anàlisi estadística de la utilització que fan els usuaris del servei ofert.</p>
+        <a href="https://support.google.com/analytics/answer/6004245?hl=ca" target="_blank" class="external-link">Com gestiona Google les dades d'anàlisi? →</a>
+        <br><br>
+        <label>
+            <input type="checkbox" id="analyticsCheck"> Activar Cookies d'Anàlisi
+        </label>
+    </div>
+
+    <button onclick="saveSettings()" class="btn">Guardar la meva configuració</button>
+    <p><a href="index.html">← Tornar a la pàgina principal</a></p>
+
+    <script>
+        function saveSettings() {
+            const check = document.getElementById('analyticsCheck').checked;
+            localStorage.setItem('cookies_accepted', check ? 'analytics' : 'essential');
+            alert('Configuració guardada correctament');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
