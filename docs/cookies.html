@@ -2,42 +2,63 @@
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <title>Política de Cookies | FoodLogistic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies | FoodLogístic S.A.</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
-        .box { background: #f4f7f6; border-left: 5px solid #e67e22; padding: 20px; margin: 20px 0; border-radius: 5px; }
-        .btn { background: #e67e22; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
-        .external-link { color: #d35400; font-weight: bold; }
+        :root { --primary: #f39c12; --dark: #2c3e50; --light: #fdfaf6; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: var(--primary); color: white; }
+        .config-section { background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--primary); }
+        .btn { background: var(--primary); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>🍪 Política de Cookies</h1>
-    <p>A FoodLogistic volem que tinguis el control total de la teva informació. A continuació t'expliquem quines cookies utilitzem:</p>
+    <h1>Política de Cookies</h1>
+    <p>A FoodLogístic S.A. utilitzem cookies per millorar la navegació i obtenir dades estadístiques.</p>
 
-    <div class="box">
-        <h3>1. Cookies Tècniques (Necessàries)</h3>
-        <p>Són aquelles que permeten a l'usuari la navegació a través de la pàgina web i l'ús de les diferents opcions o serveis que en ella existeixin. <strong>Sempre estan actives</strong> perquè el web no funcionaria sense elles.</p>
-        <a href="https://extranet.pimec.org/ca/actualitat/noticies/que-hem-tenir-compte-per-complir-normativa-cookies" target="_blank" class="external-link">Llegir més sobre la normativa tècnica →</a>
+    <h2>Què estàs acceptant?</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipus</th>
+                <th>Finalitat</th>
+                <th>Durada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tècniques</strong></td>
+                <td>Necessàries per al funcionament del web i recordar el consentiment.</td>
+                <td>Sessió / 1 any</td>
+            </tr>
+            <tr>
+                <td><strong>Analítiques</strong></td>
+                <td>Anàlisi estadística de visites (Google Analytics). Ens ajuda a saber quins serveis t'interessen més.</td>
+                <td>2 anys</td>
+            </tr>
+            <tr>
+                <td><strong>Preferències</strong></td>
+                <td>Recordar l'idioma o configuracions personalitzades.</td>
+                <td>Sessió</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="config-section">
+        <h2>Configuració de Cookies</h2>
+        <p>Pots modificar la teva elecció aquí:</p>
+        <label><input type="checkbox" checked disabled> Tècniques (Sempre actives)</label><br><br>
+        <label><input type="checkbox" id="analiticaCheck"> Acceptar Cookies Analítiques</label><br><br>
+        <button class="btn" onclick="save()">Guardar Preferències</button>
     </div>
-
-    <div class="box">
-        <h3>2. Cookies d'Anàlisi</h3>
-        <p>Aquestes galetes ens permeten quantificar el nombre d'usuaris i realitzar el mesurament i anàlisi estadística de la utilització que fan els usuaris del servei ofert.</p>
-        <a href="https://support.google.com/analytics/answer/6004245?hl=ca" target="_blank" class="external-link">Com gestiona Google les dades d'anàlisi? →</a>
-        <br><br>
-        <label>
-            <input type="checkbox" id="analyticsCheck"> Activar Cookies d'Anàlisi
-        </label>
-    </div>
-
-    <button onclick="saveSettings()" class="btn">Guardar la meva configuració</button>
-    <p><a href="index.html">← Tornar a la pàgina principal</a></p>
 
     <script>
-        function saveSettings() {
-            const check = document.getElementById('analyticsCheck').checked;
-            localStorage.setItem('cookies_accepted', check ? 'analytics' : 'essential');
-            alert('Configuració guardada correctament');
+        function save() {
+            const isAnalytic = document.getElementById('analiticaCheck').checked;
+            localStorage.setItem('foodlogistic_cookie_prefs', isAnalytic ? 'full' : 'basic');
+            alert('Configuració guardada. Gràcies per la teva confiança.');
             window.location.href = 'index.html';
         }
     </script>
