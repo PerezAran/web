@@ -9,10 +9,10 @@
     <style>
         /* -------------------- CSS VARIABLES (MODERN THEME) -------------------- */
         :root {
-            --primary: #e67e22;      /* Taronja vibrant - frescor i energia */
+            --primary: #e67e22;      /* Taronja vibrant */
             --primary-dark: #d35400;
             --primary-light: #f39c12;
-            --secondary: #2ecc71;    /* Verd - frescor i sostenibilitat */
+            --secondary: #2ecc71;    /* Verd */
             --secondary-dark: #27ae60;
             --dark: #2c3e50;
             --dark-gray: #34495e;
@@ -44,14 +44,12 @@
             overflow-x: hidden;
         }
 
-        /* Container reutilitzable */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        /* Tipografia */
         h1, h2, h3 {
             font-weight: 700;
             line-height: 1.2;
@@ -74,7 +72,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Botons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -97,7 +94,6 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Header i navegació */
         .site-header {
             background-color: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(10px);
@@ -151,7 +147,6 @@
             color: var(--primary);
         }
 
-        /* Hero section */
         .hero {
             background: linear-gradient(135deg, rgba(230,126,34,0.92), rgba(46,204,113,0.88)), url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=1600&h=700&fit=crop') center/cover no-repeat;
             color: white;
@@ -161,20 +156,11 @@
             margin-bottom: 2rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 1rem auto 0;
-            opacity: 0.95;
-        }
-
-        /* Seccions comunes */
         .section {
             padding: 4rem 0;
             border-bottom: 1px solid var(--gray-light);
         }
 
-        /* Grid de serveis / valors */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -201,7 +187,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Estadístiques */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -219,13 +204,13 @@
             color: var(--primary);
         }
 
-        /* Formulari modern */
+        /* FORMULARI MILLORAT I ESTILS */
         .form-container {
             background: var(--white);
             border-radius: var(--radius-lg);
             padding: 2.5rem;
             box-shadow: var(--shadow-md);
-            max-width: 800px;
+            max-width: 850px;
             margin: 1.5rem auto 0;
         }
 
@@ -248,6 +233,7 @@
             font-family: inherit;
             transition: var(--transition);
             background-color: var(--white);
+            font-size: 1rem;
         }
 
         input:focus, textarea:focus, select:focus {
@@ -262,7 +248,6 @@
             gap: 1.5rem;
         }
 
-        /* Footer */
         .footer {
             background-color: var(--dark);
             color: var(--gray-light);
@@ -282,11 +267,9 @@
         .legal-links a {
             color: var(--primary-light);
             text-decoration: none;
-            cursor: pointer;
             transition: var(--transition);
         }
 
-        /* Cookie banner */
         .cookie-banner {
             position: fixed;
             bottom: 0;
@@ -307,7 +290,6 @@
 
         .cookie-banner.show { transform: translateY(0); }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .navbar { flex-direction: column; }
             .form-row { grid-template-columns: 1fr; }
@@ -375,53 +357,67 @@
 
         <section id="contacte" class="section">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <h2>📋 Contacta amb l'equip comercial</h2>
-                    <p>Omple el formulari i et respondrem en menys de 24 hores.</p>
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h2>📋 Sol·licitud de pressupost professional</h2>
+                    <p>Deixa les teves dades i un consultor de FoodLogístic S.A. et contactarà en menys de 24h.</p>
                 </div>
                 
                 <div class="form-container">
                     <form id="contactForm" action="#" method="post">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="nom">Nom complet *</label>
-                                <input type="text" id="nom" name="nom" placeholder="Nom i cognoms" required>
+                                <label for="nom">Nom del responsable *</label>
+                                <input type="text" id="nom" name="nom" placeholder="Ex: Joan Vila" required>
                             </div>
                             <div class="form-group">
-                                <label for="empresa">Empresa *</label>
-                                <input type="text" id="empresa" name="empresa" placeholder="Nom fiscal de l'empresa" required>
+                                <label for="empresa">Nom de l'empresa / NIF *</label>
+                                <input type="text" id="empresa" name="empresa" placeholder="Ex: Fruites Mataró S.L." required>
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email">Correu electrònic *</label>
-                                <input type="email" id="email" name="email" placeholder="correu@empresa.com" required>
+                                <label for="email">Correu electrònic corporatiu *</label>
+                                <input type="email" id="email" name="email" placeholder="nom@empresa.com" required>
                             </div>
                             <div class="form-group">
-                                <label for="telefon">Telèfon *</label>
-                                <input type="tel" id="telefon" name="telefon" placeholder="+34 000 000 000" required>
+                                <label for="telefon">Telèfon de contacte directe *</label>
+                                <input type="tel" id="telefon" name="telefon" placeholder="+34 930 00 00 00" required>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="servei">Servei d'interès</label>
-                            <select id="servei" name="servei">
-                                <option value="transport">Transport refrigerat</option>
-                                <option value="emmagatzematge">Emmagatzematge logístic</option>
-                                <option value="distribucio">Distribució sostenible</option>
-                                <option value="altre">Altres serveis</option>
+                            <label for="servei">Quin servei logístic necessites? *</label>
+                            <select id="servei" name="servei" required>
+                                <option value="" disabled selected>Selecciona una opció...</option>
+                                <option value="transport-fresc">Transport refrigerat (0°C a 4°C)</option>
+                                <option value="transport-congelat">Transport congelat (-18°C)</option>
+                                <option value="emmagatzematge">Emmagatzematge i Picking</option>
+                                <option value="distribucio-ultima-milla">Distribució última milla (Sostenible)</option>
+                                <option value="consultoria">Consultoria i optimització de rutes</option>
                             </select>
                         </div>
+
                         <div class="form-group">
-                            <label for="missatge">Missatge o necessitat específica</label>
-                            <textarea id="missatge" name="missatge" rows="4" placeholder="Explica'ns el teu projecte..."></textarea>
+                            <label for="missatge">Com et podem ajudar?</label>
+                            <textarea id="missatge" name="missatge" rows="4" placeholder="Explica'ns el volum, rutes o freqüència de lliuraments..."></textarea>
                         </div>
-                        <div class="form-group">
-                            <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
-                                <input type="checkbox" id="privacyConsent" style="width: auto; margin-top: 5px;" required> 
-                                <span>He llegit i accepto la <a href="privacitat.html" style="color: var(--primary); font-weight: bold;">Política de privacitat</a> *</span>
+
+                        <div class="form-group" style="background-color: var(--gray-light); padding: 1.2rem; border-radius: var(--radius); border-left: 4px solid var(--primary);">
+                            <label style="display: flex; align-items: flex-start; gap: 0.8rem; cursor: pointer; font-size: 0.9rem; line-height: 1.4;">
+                                <input type="checkbox" id="privacyConsent" name="privacyConsent" style="width: auto; margin-top: 3px;" required> 
+                                <span>
+                                    Accepto el tractament de les meves dades per part de <strong>FoodLogístic S.A.</strong> per a la gestió comercial. 
+                                    He llegit la <a href="privacitat.html" target="_blank" style="color: var(--primary-dark); font-weight: bold;">Política de Privacitat</a>.
+                                </span>
                             </label>
                         </div>
-                        <button type="submit" class="btn" style="width: 100%; justify-content: center;">Enviar sol·licitud 📩</button>
+
+                        <div style="text-align: center; margin-top: 1.5rem;">
+                            <button type="submit" class="btn" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 1rem;">
+                                Enviar sol·licitud 📩
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -430,21 +426,21 @@
 
     <footer class="footer">
         <div class="container">
-            <p>© 2026 FoodLogístic S.A. - Distribució alimentària intel·ligent i sostenible</p>
+            <p>© 2026 FoodLogístic S.A. - Carrer de la Teixidora, 13, Mataró</p>
             <div class="legal-links">
-                <a href="avis-legal.html">⚖️ Avís Legal</a>
-                <a href="privacitat.html">🔒 Política de Privacitat</a>
-                <a href="cookies.html">🍪 Política de Cookies</a>
+                <a href="avis-legal.html">Avís Legal</a>
+                <a href="privacitat.html">Política de Privacitat</a>
+                <a href="cookies.html">Política de Cookies</a>
             </div>
         </div>
     </footer>
 
     <div id="cookieBanner" class="cookie-banner">
         <div style="flex: 2; font-size: 0.9rem;">
-            🍪 Utilitzem cookies pròpies i de tercers per analitzar el trànsit i millorar la teva experiència.
+            🍪 Utilitzem cookies per millorar la teva experiència i analitzar el trànsit del web.
         </div>
         <div style="display: flex; gap: 1rem;">
-            <button onclick="acceptAll()" class="btn" style="padding: 0.5rem 1.2rem;">Acceptar</button>
+            <button onclick="acceptAll()" class="btn" style="padding: 0.5rem 1.2rem;">Acceptar totes</button>
             <a href="cookies.html" class="btn" style="background: transparent; border: 1px solid white; padding: 0.5rem 1.2rem;">Configurar</a>
         </div>
     </div>
